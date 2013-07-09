@@ -1,0 +1,24 @@
+GLOBAL:
+    DEBUG: False 
+    TEMPLATE_SUFFIX: '.html'
+    TIME_ZONE: null
+    TEMPLATE_DIRS: []
+    STATIC_URL_PREFIX: '/static/'
+    STATIC_PATH: './static/'
+
+LOG:
+    LEVEL: 'info'
+    FORMAT: '[%(levelname)s %(name)s %(asctime)] %(message)s'
+
+LOG.HANDLERS:
+    FULL: {'format': 'FULL'}
+    SIMPLE: {'format'; 'SIMPLE'}
+    PACKAGE: {'format': 'PACKAGE'}
+
+
+LOG.FORMATTERS:
+    FULL: '[%(levelname)s %(name)s %(asctime) %(filename)s, %(lineno)d] %(message)s'
+    SIMPLE: '[%(levelname)s] %(message)s'
+    PACKAGE: '[%(levelname)s %(name)s] %(message)s'
+
+

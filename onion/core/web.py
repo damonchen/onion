@@ -1,0 +1,49 @@
+#coding=utf-8
+
+'''
+@date: 2013-07-06
+@author: damon.chen
+'''
+
+import tornado.httpserver
+from tornado.web import Application as Application_, RequestHandler as RequestHandler_
+
+
+class Application(Application_):
+
+    def __init__(self, apps, settings, project_path=None, debug=None):
+        handlers = self.get_apps_handlers(apps)
+
+
+        if project_path is not None:
+            settings.PROJECT_PATH = project_path
+
+        if debug is not None:
+            settings.DEBUG = debug
+
+        super(Application, self).__init__(handlers, **settings)
+        
+
+    def get_apps_handlers(self, apps):
+        handlers = []
+        for app in apps:
+            handlers.extend(app.route.handlers)
+
+        return handlers
+
+
+class BaseHandler(RequestHandler_):
+
+    def render_string(self, template_name):
+        pass
+
+
+
+def run_simple(hostname, port, app, app_reload):
+    #if app_reload:
+        #app.settings.DEBUG = True
+
+    http_server = tornado.httpserver.HTTPServer(app)
+    http_server.listen(port)
+    tornado.ioloop.IOLoop.instance().start()
+
