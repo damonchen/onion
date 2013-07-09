@@ -1,3 +1,32 @@
 #onion - 洋葱
 
-这是一个web框架，底层采用tornado，数据库部分采用sqlalchemy，模板采用jinja
+:Author: damon <netubu@gmail.com>
+
+
+.. contents::
+
+
+:About Onion
+
+Onion is a Python based web framework, which based on
+torando, sqlalchemy and jinja framework and yaml config.
+Onion is inspired by uliweb.
+
+:License
+
+Onion is released by BSD license.
+
+
+
+:Principle
+
+
+* Simple and easy to use web framework
+* Reusability the app
+* Easy to configuration
+* Flexible to extend
+
+:Links
+
+*   git : http://git.oschina.net/damon/onion
+
