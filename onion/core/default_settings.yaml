@@ -5,6 +5,7 @@ GLOBAL:
     TEMPLATE_DIRS: []
     STATIC_URL_PREFIX: '/static/'
     STATIC_PATH: './static/'
+    TEMPLATE_LOADER: 'FileLoader',
 
 LOG:
     LEVEL: 'info'

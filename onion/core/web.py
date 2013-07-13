@@ -21,7 +21,7 @@ class Application(Application_):
         if debug is not None:
             settings.DEBUG = debug
 
-        super(Application, self).__init__(handlers, **settings)
+        Application_.__init__(self, handlers, **settings)
         
 
     def get_apps_handlers(self, apps):
@@ -34,9 +34,11 @@ class Application(Application_):
 
 class BaseHandler(RequestHandler_):
 
-    def render_string(self, template_name):
-        pass
-
+    def render(self, template_name, **kwargs):
+        namespace = self.get_template_namespace()
+        namespace.update(kwargs)
+        html = self.render_string(template_name, namespace)
+        self.finish(html)
 
 
 def run_simple(hostname, port, app, app_reload):
